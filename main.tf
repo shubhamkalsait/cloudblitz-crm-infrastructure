@@ -128,10 +128,19 @@ resource "aws_db_instance" "default" {
 
 ########## S3 Bucket ###########
 resource "aws_s3_bucket" "example" {
-  bucket = "cloudblitz-infra"
+  bucket = "cloudblitz-frontend"
 
   tags = {
-    Name        = "cloudblitz-infra"
+    Name        = "cloudblitz-frontend"
+    Environment = "dev"
+  }
+}
+
+resource "aws_s3_bucket" "example2" {
+  bucket = "cloudblitz-backend"
+
+  tags = {
+    Name        = "cloudblitz-backend"
     Environment = "dev"
   }
 }
